@@ -1,0 +1,22 @@
+{
+  "name": "orangehrm-cucumber-playwright",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "npx playwright install",
+    "test": "cucumber-js --require-module ts-node/register --require \"features/steps/**/*.ts\" --require \"support/**/*.ts\" --format json:reports/cucumber.json",
+    "test:report": "npm run test && node ./scripts/generate-report.js",
+    "report": "node ./scripts/generate-report.js",
+    "test:debug": "PWDEBUG=1 cucumber-js --require-module ts-node/register --require \"features/steps/**/*.ts\" --require \"support/**/*.ts\""
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.0.0",
+    "cucumber-html-reporter": "^5.5.0",
+    "dotenv": "^16.0.0",
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  }
+}
